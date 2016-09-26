@@ -1,0 +1,21 @@
+﻿@model IEnumerable<MVCBlogger.Models.Table>
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Add new message</h2>
+@using (Html.BeginForm("Create", "Message"))
+{
+    <div>
+        @Html.Label("Title")
+        @Html.TextBox("strAtricle")
+        <br />
+
+        @Html.Label("Content")
+        @Html.TextBox("strContent")
+        <br />
+        <input type="submit" value="Submit" />
+    </div>
+
+}

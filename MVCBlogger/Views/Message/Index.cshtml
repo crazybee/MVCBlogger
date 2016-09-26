@@ -1,0 +1,49 @@
+﻿@using System.Web.UI.WebControls
+@model IEnumerable<MVCBlogger.Models.Table>
+
+@{
+    ViewBag.Title = "Message board";
+}
+
+<div>
+
+    <h2>Message list</h2>
+
+    @if (Model != null)
+    {
+        <table>
+            <tbody>
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>Id：</td>
+                        <td>@item.Id</td>
+                    </tr>
+                    <tr>
+                        <td>Title：</td>
+                        <td>@item.Title</td>
+                    </tr>
+                    <tr>
+                        <td>Content：</td>
+                        <td>@item.Content</td>
+                    </tr>
+                    <tr>
+                        <td>Time：</td>
+                        <td>@item.Time</td>
+                    </tr>
+                    <tr>
+                        <td>                          
+                            @Html.ActionLink("Delete message", "Delete", new {articleId = @item.Id})
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+</div>
+<br />
+<div>
+    @Html.ActionLink("Add new message", "Create")
+</div>
